@@ -1,0 +1,14 @@
+version: "3.9"
+
+x-service: &default-service
+  entrypoint: pytest
+  build:
+    context: .
+  image: rocksteady:latest
+  restart: "no"
+  working_dir: /rock
+
+services:
+  test:
+    <<: *default-service
+    entrypoint: pytest
